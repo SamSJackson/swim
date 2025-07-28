@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while IFS= read -r line; do
+	output= wget -q $line  
+done < $1
