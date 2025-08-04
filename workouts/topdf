@@ -1,4 +1,4 @@
 #!/bin/bash
 
 name=$(basename -s .txt "$1")
-enscript "$name.txt" --output=- | ps2pdf - > pdfs/"$name.pdf"
+enscript texts/"$name.txt" --output=- | ps2pdf - > pdfs/"$name.pdf"

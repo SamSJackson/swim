@@ -1,7 +1,7 @@
 import csv 
 
-links_file = "texts/freestyle-advanced-workouts.txt"
-distances_file = "texts/distances.txt"
+links_file = "links/freestyle-advanced-workouts.txt"
+distances_file = "links/distances.txt"
 
 with open(links_file, 'r') as f:
     links = f.readlines()
