@@ -11,7 +11,7 @@ Set 1
 200 @ b +25
 2 x 150 @ b -10
 200 @ b +40
-300 @ b -30 (yep, not a typo…if this is completely impossible, do b -15)
+300 @ b -30 (yep, not a typo, if this is completely impossible, do b -15)
 200 @ b +55
 For this set obviously the 200s are recovery, the 100s, 150s, and 300 should be progressively more challenging, with the 300 at the end basically being fast)
 2000
