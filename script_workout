@@ -1,0 +1,25 @@
+#!/bin/bash
+clear
+
+path="/home/sam/Desktop/swim/workouts/texts"
+
+if [ $# -gt 0 ]; then
+  files=$(find $path -iname "$1"* -type f)
+  file_count=$(echo -n "$files" | awk 'END {print NR}')
+fi
+
+if [ $# -eq 0 ] || [ $file_count -eq 0 ]; then
+
+  if [ $# -gt 0 ]; then 
+    echo "No file named starting with $1, showing random"
+  fi
+
+  file=$(find $path -type f | shuf -n 1)
+
+else
+  file=$(echo "$files" | head -n 1)
+fi
+
+basename "$file" .txt
+echo 
+cat "$file"
