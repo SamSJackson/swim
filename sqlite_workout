@@ -1,0 +1,55 @@
+#!/bin/bash
+path="/home/sam/Desktop/swim/workouts/texts"
+
+while [ $# -gt 0 ]; do
+	case $1 in 
+		# handle options
+		-a | --aerobic)
+		echo "aerobic mode"
+		;;	
+		-s | --speed)
+		echo "speed mode"
+		;;
+		-n | --name)
+			if [ $# -lt 2 ]; then
+				echo "Must provide a name"
+				exit 0
+			fi 
+
+			files=$(find $path -iname "$2*" -type f)
+			file_count=$(echo -n "$files" | awk 'END {print NR}')
+			
+			if [ $file_count -eq 0 ]; then
+				echo "No file named starting with $2"
+			else
+				file=$(echo "$files" | head -n 1)
+			fi
+	esac
+	shift
+done
+
+basename "$file" .txt 
+echo
+cat "$file"
+
+
+# if [ $# -gt 0 ]; then
+#   files=$(find $path -iname "$1"* -type f)
+#   file_count=$(echo -n "$files" | awk 'END {print NR}')
+# fi
+
+# if [ $# -eq 0 ] || [ $file_count -eq 0 ]; then
+
+#   if [ $# -gt 0 ]; then 
+#     echo "No file named starting with $1, showing random"
+#   fi
+
+#   file=$(find $path -type f | shuf -n 1)
+
+# else
+#   file=$(echo "$files" | head -n 1)
+# fi
+
+# basename "$file" .txt
+# echo 
+# cat "$file"
